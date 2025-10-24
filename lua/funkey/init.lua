@@ -7,10 +7,10 @@ function M.colorscheme()
     end
     vim.o.background = "dark"
     vim.o.termguicolors = true
-    vim.g.colors_name = "tokyodark"
-    require("tokyodark.highlights").setup()
+    vim.g.colors_name = "funkey"
+    require("funkey.highlights").setup()
 end
 
-M.setup = require("tokyodark.config").setup
+M.setup = require("funkey.config").setup
 
 return M

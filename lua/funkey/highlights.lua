@@ -1,7 +1,7 @@
-local p = require("tokyodark.palette")
-local utils = require("tokyodark.utils")
-local config = require("tokyodark.config")
-local terminal = require("tokyodark.terminal")
+local p = require("funkey.palette")
+local utils = require("funkey.utils")
+local config = require("funkey.config")
+local terminal = require("funkey.terminal")
 
 local M = {}
 

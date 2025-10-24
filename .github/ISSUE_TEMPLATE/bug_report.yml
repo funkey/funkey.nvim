@@ -1,11 +1,11 @@
 name: Bug report
-description: Report a problem in tokyodark.nvim
+description: Report a problem in funkey.nvim
 labels: [bug]
 body:
   - type: markdown
     attributes:
       value: |
-        Use the minimal configuration [config.lua](https://github.com/tiagovla/tokyodark.nvim/blob/master/.github/config.lua) with `NVIM_APPNAME=tokyodark nvim -u config.lua`.
+        Use the minimal configuration [config.lua](https://github.com/funkey/funkey.nvim/blob/master/.github/config.lua) with `NVIM_APPNAME=funkey nvim -u config.lua`.
 
   - type: textarea
     attributes:

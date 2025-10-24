@@ -1,7 +1,7 @@
 -- Copyright (c) 2021-2022 tiagovla
 -- License: MIT
 --
-local p = require("tokyodark.palette")
+local p = require("funkey.palette")
 local colors = {
     bg = p.bg1,
     fg = p.fg,
@@ -14,7 +14,7 @@ local colors = {
     grey = p.grey,
 }
 
-local tokyo_dark = {
+local funkey_dark = {
     inactive = {
         a = { fg = colors.grey, bg = colors.bg, gui = "bold" },
         b = { fg = colors.grey, bg = colors.bg },
@@ -44,6 +44,6 @@ function mt:__index(k)
     end
 end
 
-tokyo_dark = setmetatable(tokyo_dark, mt)
+funkey_dark = setmetatable(funkey_dark, mt)
 
-return tokyo_dark
+return funkey_dark

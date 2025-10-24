@@ -1,5 +1,5 @@
-local config = require("tokyodark.config")
-local utils = require("tokyodark.utils")
+local config = require("funkey.config")
+local utils = require("funkey.utils")
 
 local palette = {
     black = "#06080A",

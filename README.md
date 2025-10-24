@@ -1,10 +1,6 @@
-![tokyodark.nvim](https://user-images.githubusercontent.com/30515389/141231977-82476546-eb48-47e4-a5fc-45ace7eacb0d.png)
-
-![image](https://user-images.githubusercontent.com/30515389/115807570-42385080-a3bf-11eb-8286-c981b5093ffa.png)
-
 ### About
 
-A clean dark theme written in lua for neovim (0.7.2 or older).
+The funkey color theme written for neovim.
 
 ### Features
 
@@ -19,13 +15,13 @@ Install with your favorite package manager:
 
 ``` lua
 {
-    "tiagovla/tokyodark.nvim",
+    "funkey/funkey.nvim",
     opts = {
         -- custom options here
     },
     config = function(_, opts)
-        require("tokyodark").setup(opts) -- calling setup is optional
-        vim.cmd [[colorscheme tokyodark]]
+        require("funkey").setup(opts) -- calling setup is optional
+        vim.cmd [[colorscheme funkey]]
     end,
 }
 ```
@@ -51,5 +47,6 @@ local default_config = {
 
 ### Inspiration
 
+- [tokyodark](https://github.com/tiagovla/tokyodark.nvim)
 - [tokyonight-vim](https://github.com/ghifarit53/tokyonight-vim)
 - [tokyo-night-vscode-theme](https://github.com/enkia/tokyo-night-vscode-theme)

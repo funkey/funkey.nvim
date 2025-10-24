@@ -4,9 +4,9 @@ local default_config = {
     transparent_background = false,
     gamma = 1.00,
     styles = {
-        comments = { italic = true },
-        keywords = { italic = true },
-        identifiers = { italic = true },
+        comments = {},
+        keywords = {},
+        identifiers = {},
         functions = {},
         variables = {},
     },

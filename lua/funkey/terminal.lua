@@ -2,7 +2,7 @@ local M = {}
 local p = require("funkey.palette")
 
 function M.setup()
-    vim.g.terminal_color_0 = p.black
+    vim.g.terminal_color_0 = p.funkey_grayscale_0
     vim.g.terminal_color_8 = p.bg2
 
     vim.g.terminal_color_7 = p.fg

@@ -6,7 +6,7 @@ function M.colorscheme()
         vim.cmd("syntax reset")
     end
     vim.o.background = "dark"
-    vim.o.termguicolors = true
+    -- vim.o.termguicolors = true
     vim.g.colors_name = "funkey"
     require("funkey.highlights").setup()
 end

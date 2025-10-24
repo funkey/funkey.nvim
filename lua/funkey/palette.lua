@@ -1,26 +1,63 @@
 local config = require("funkey.config")
 local utils = require("funkey.utils")
 
+local colors = {
+    funkey_color_1 = "#B16AD2",
+    funkey_color_1_dark = "#3F1B50",
+    funkey_color_1_light = "#C289DC",
+    funkey_color_2 = "#DD8C13",
+    funkey_color_2_dark = "#50350B",
+    funkey_color_2_light = "#F4C071",
+    funkey_color_3 = "#55B849",
+    funkey_color_3_dark = "#295C24",
+    funkey_color_3_light = "#98D491",
+    funkey_color_4 = "#DB8457",
+    funkey_color_5 = "#8174B1",
+    funkey_color_6 = "#ADD8E6",
+    funkey_color_7 = "#000080",
+    funkey_color_8 = "#800020",
+    funkey_color_9 = "#228B22",
+    funkey_grayscale_0 = "#250A29",
+    funkey_grayscale_25 = "#372D39",
+    funkey_grayscale_50 = "#808080",
+    funkey_grayscale_75 = "#D0C7D1",
+    funkey_grayscale_100 = "#E0CFE3",
+}
+
 local palette = {
-    black = "#06080A",
-    bg0 = "#11121D",
-    bg1 = "#1A1B2A",
-    bg2 = "#212234",
-    bg3 = "#353945",
-    bg4 = "#4A5057",
-    bg5 = "#282C34",
-    bg_red = "#FE6D85",
-    bg_green = "#98C379",
-    bg_blue = "#9FBBF3",
-    diff_red = "#773440",
-    diff_green = "#587738",
-    diff_blue = "#2A3A5A",
-    diff_add = "#1E2326",
-    diff_change = "#262B3D",
-    diff_delete = "#281B27",
-    diff_text = "#1C4474",
-    fg = "#A0A8CD",
-    red = "#EE6D85",
+    -- placeholder for future adjustments
+    replaceme = "#ff11ee",
+    -- foreground
+    text = colors.funkey_grayscale_75,
+    text_darker = colors.funkey_grayscale_50,
+    text_lighter = colors.funkey_grayscale_100,
+    highlight = colors.funkey_color_2,
+    highlight_secondary = colors.funkey_color_2_light,
+    -- background
+    bg0 = colors.funkey_grayscale_0,
+    bg1 = colors.funkey_grayscale_0,
+    bg2 = colors.funkey_grayscale_25,
+    bg3 = colors.funkey_grayscale_25,
+    bg4 = colors.funkey_grayscale_50,
+    bg5 = colors.funkey_grayscale_50,
+    -- diffs (also for git)
+    diff_delete = colors.funkey_color_8,
+    diff_add = colors.funkey_color_3,
+    diff_change = colors.funkey_color_2,
+    -- UI
+    button = colors.funkey_color_3,
+    -- annotations
+    error = colors.funkey_color_1_dark,
+    warning = colors.funkey_color_2_dark,
+    hint = colors.funkey_color_3_dark,
+    info = colors.funkey_color_3_dark,
+    -- syntax highlights
+    keyword = colors.funkey_color_1,
+    type = colors.funkey_color_2,
+    constant = colors.funkey_color_3,
+    operator = colors.funkey_grayscale_50,
+    comment = colors.funkey_grayscale_50,
+    -- tokyo colors (commented out if already replaced)
     orange = "#F6955B",
     yellow = "#D7A65F",
     green = "#95C561",
@@ -40,7 +77,7 @@ local function gamma_correction(colors)
 end
 
 local custom_palette = type(config.custom_palette) == "function"
-        and config.custom_palette(palette)
+    and config.custom_palette(palette)
     or config.custom_palette
 
 return gamma_correction(vim.tbl_extend("force", palette, custom_palette))

@@ -24,6 +24,14 @@ local colors = {
     funkey_grayscale_100 = "#E0CFE3",
 }
 
+local function gamma(value)
+    return setmetatable({}, {
+        __add = function(a)
+            return utils.color_gamma(a, value)
+        end,
+    })
+end
+
 local palette = {
     -- placeholder for future adjustments
     replaceme = "#ff11ee",
@@ -47,7 +55,7 @@ local palette = {
     -- UI
     button = colors.funkey_color_3,
     -- annotations
-    error = colors.funkey_color_1_dark,
+    error = colors.funkey_color_1 + gamma(0.3),
     warning = colors.funkey_color_2_dark,
     hint = colors.funkey_color_3_dark,
     info = colors.funkey_color_3_dark,

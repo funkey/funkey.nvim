@@ -31,7 +31,7 @@ M.highlights = {
     Normal = { fg = p.text, bg = p.background } + transparent_bg,
     NormalNC = { fg = p.text, bg = p.background } + transparent_bg,
     NormalSB = { fg = p.text, bg = p.background } + transparent_bg,
-    NormalFloat = { fg = p.text, bg = p.background } + transparent_bg,
+    NormalFloat = { fg = p.text, bg = p.background_1 } + transparent_bg,
     Terminal = { fg = p.text, bg = p.background } + transparent_bg,
     EndOfBuffer = { fg = p.background_2, bg = p.background } + transparent_bg,
     FoldColumn = { fg = p.text, bg = p.background } + transparent_bg,
@@ -56,7 +56,7 @@ M.highlights = {
     Directory = { fg = p.directory },
     ErrorMsg = { fg = p.error, bold = true, underline = true },
     WarningMsg = { fg = p.warning, bold = true },
-    MoreMsg = { fg = p.unassigned, bold = true },
+    MoreMsg = { fg = p.highlight, bold = true },
     IncSearch = { fg = p.background, bg = p.highlight },
     Search = { fg = p.background, bg = p.highlight },
     CurSearch = { fg = p.background, bg = p.highlight },
@@ -85,7 +85,7 @@ M.highlights = {
     VertSplit = { fg = p.text_darker },
     Visual = { bg = p.background_2 },
     VisualNOS = { fg = p.none, bg = p.background_2, underline = true },
-    QuickFixLine = {underline = true, sp = p.highlight },
+    QuickFixLine = { underline = true, sp = p.highlight },
     Debug = { fg = p.debug },
     debugPC = { fg = p.background, bg = p.debug },
     debugBreakpoint = { fg = p.background, bg = p.debug },
@@ -97,9 +97,9 @@ M.highlights = {
     NeoTreeGitModified = { fg = p.highlight },
 
     -- syntax highlighting
-    Variable = {fg = p.variable } + styles.variables,
+    Variable = { fg = p.variable } + styles.variables,
     -- TODO: is there a way to also highlight parameters in the function body?
-    Parameter = {fg = p.parameter } + styles.variables,
+    Parameter = { fg = p.parameter } + styles.variables,
     Type = { fg = p.type } + styles.keywords,
     Structure = { fg = p.text } + styles.keywords,
     StorageClass = { fg = p.highlight } + styles.keywords,
@@ -140,6 +140,11 @@ M.highlights = {
     Comment = { fg = p.comment } + styles.comments,
     SpecialComment = { fg = p.background_4 } + styles.comments,
     Todo = { fg = p.highlight } + styles.comments,
+
+    -- illuminated
+    IlluminatedWordWrite = { bg = p.background_1, bold = true },
+    IlluminatedWordRead = { bg = p.background_1 },
+    IlluminatedWordText = { bg = p.background_1 },
 
     -- whichkey
     WhichKey = { fg = p.text_lighter },

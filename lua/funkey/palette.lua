@@ -1,4 +1,3 @@
-local config = require("funkey.config")
 local utils = require("funkey.utils")
 
 -- Those define the primary colors of the theme. All other colors will be
@@ -9,7 +8,7 @@ local primary_colors = {
   color_2 = "#DD8C13",
   color_3 = "#55B849",
   -- background = "#110106",  -- my slides background
-  background = "#1A071D",  -- a pleasant compromise
+  background = "#1A071D", -- a pleasant compromise
   -- background = "#250A29",  -- my terminal background
   foreground = "#E0CFE3",
   -- Specific colors (for git diffs and errors)

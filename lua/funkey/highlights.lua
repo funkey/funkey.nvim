@@ -74,7 +74,7 @@ M.highlights = {
     SpellCap = { underline = true, sp = p.hint },
     SpellLocal = { underline = true, sp = p.hint },
     SpellRare = { underline = true, sp = p.hint },
-    StatusLine = { fg = p.text, bg = p.background_2 },
+    StatusLine = { fg = p.text, bg = p.background },
     StatusLineTerm = { fg = p.text, bg = p.background_2 },
     StatusLineNC = { fg = p.text_darker, bg = p.background_1 },
     StatusLineTermNC = { fg = p.text_darker, bg = p.background_1 },
@@ -95,6 +95,9 @@ M.highlights = {
     FloatTitle = { fg = p.highlight },
     -- TODO: is there a way to disable highlighting?
     NeoTreeGitModified = { fg = p.highlight },
+
+    -- mason
+    MasonHighlightBlockBold = { bg = p.highlight },
 
     -- syntax highlighting
     Variable = { fg = p.variable } + styles.variables,
@@ -275,6 +278,7 @@ M.highlights = {
     ["@type.qualifier"] = { link = "Type" },
     ["@variable"] = { link = "Variable" },
     ["@variable.parameter"] = { link = "Parameter" },
+    ["@variable.builtin"] = { link = "Variable" },
 
     -- lsp
     LspCxxHlGroupEnumConstant = { link = "Constant" },

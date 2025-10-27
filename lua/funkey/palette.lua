@@ -1,91 +1,102 @@
 local config = require("funkey.config")
 local utils = require("funkey.utils")
 
+-- Those define the primary colors of the theme. All other colors will be
+-- derived from those.
+local primary_colors = {
+  -- Freely adjustable colors
+  color_1 = "#B16AD2",
+  color_2 = "#DD8C13",
+  color_3 = "#55B849",
+  -- background = "#110106",  -- my slides background
+  background = "#1A071D",  -- a pleasant compromise
+  -- background = "#250A29",  -- my terminal background
+  foreground = "#E0CFE3",
+  -- Specific colors (for git diffs and errors)
+  red = "#E64505",
+  green = "#55B849",
+  blue = "#0B7FF4",
+}
+
+-- Mixin to change the lightness of a color.
+local function lightness(value)
+  return setmetatable({}, {
+    __add = function(a)
+      return utils.color_lightness(a, value)
+    end,
+  })
+end
+
+-- All theme colors, derived from the primary colors only.
 local colors = {
-    funkey_color_1 = "#B16AD2",
-    funkey_color_1_dark = "#3F1B50",
-    funkey_color_1_light = "#C289DC",
-    funkey_color_2 = "#DD8C13",
-    funkey_color_2_dark = "#50350B",
-    funkey_color_2_light = "#F4C071",
-    funkey_color_3 = "#55B849",
-    funkey_color_3_dark = "#295C24",
-    funkey_color_3_light = "#98D491",
-    funkey_color_4 = "#DB8457",
-    funkey_color_5 = "#8174B1",
-    funkey_color_6 = "#ADD8E6",
-    funkey_color_7 = "#000080",
-    funkey_color_8 = "#800020",
-    funkey_color_9 = "#228B22",
-    funkey_grayscale_0 = "#250A29",
-    funkey_grayscale_25 = "#372D39",
-    funkey_grayscale_50 = "#808080",
-    funkey_grayscale_75 = "#D0C7D1",
-    funkey_grayscale_100 = "#E0CFE3",
+  color_1 = primary_colors.color_1,
+  color_1_dark = primary_colors.color_1 + lightness(-0.3),
+  color_1_light = primary_colors.color_1 + lightness(0.2),
+  color_2 = primary_colors.color_2,
+  color_2_dark = primary_colors.color_2 + lightness(-0.2),
+  color_2_light = primary_colors.color_2 + lightness(0.4),
+  color_3 = primary_colors.color_3,
+  color_3_dark = primary_colors.color_3 + lightness(-0.4),
+  color_3_light = primary_colors.color_3 + lightness(0.4),
+  grayscale_0 = primary_colors.background,
+  grayscale_10 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.10),
+  grayscale_25 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.25),
+  grayscale_30 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.30),
+  grayscale_40 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.40),
+  grayscale_50 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.50),
+  grayscale_75 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.75),
+  grayscale_100 = primary_colors.foreground,
+  red = primary_colors.red,
+  red_dark = primary_colors.red + lightness(-0.3),
+  red_light = primary_colors.red + lightness(0.3),
+  green = primary_colors.green,
+  green_dark = primary_colors.green + lightness(-0.3),
+  green_light = primary_colors.green + lightness(0.3),
+  blue = primary_colors.blue,
+  blue_dark = primary_colors.blue + lightness(-0.3),
+  blue_light = primary_colors.blue + lightness(0.3),
 }
 
-local function gamma(value)
-    return setmetatable({}, {
-        __add = function(a)
-            return utils.color_gamma(a, value)
-        end,
-    })
-end
-
+-- Semantic colors.
 local palette = {
-    -- placeholder for future adjustments
-    replaceme = "#ff11ee",
-    -- foreground
-    text = colors.funkey_grayscale_75,
-    text_darker = colors.funkey_grayscale_50,
-    text_lighter = colors.funkey_grayscale_100,
-    highlight = colors.funkey_color_2,
-    highlight_secondary = colors.funkey_color_2_light,
-    -- background
-    bg0 = colors.funkey_grayscale_0,
-    bg1 = colors.funkey_grayscale_0,
-    bg2 = colors.funkey_grayscale_25,
-    bg3 = colors.funkey_grayscale_25,
-    bg4 = colors.funkey_grayscale_50,
-    bg5 = colors.funkey_grayscale_50,
-    -- diffs (also for git)
-    diff_delete = colors.funkey_color_8,
-    diff_add = colors.funkey_color_3,
-    diff_change = colors.funkey_color_2,
-    -- UI
-    button = colors.funkey_color_3,
-    -- annotations
-    error = colors.funkey_color_1 + gamma(0.3),
-    warning = colors.funkey_color_2_dark,
-    hint = colors.funkey_color_3_dark,
-    info = colors.funkey_color_3_dark,
-    -- syntax highlights
-    keyword = colors.funkey_color_1,
-    type = colors.funkey_color_2,
-    constant = colors.funkey_color_3,
-    operator = colors.funkey_grayscale_50,
-    comment = colors.funkey_grayscale_50,
-    -- tokyo colors (commented out if already replaced)
-    orange = "#F6955B",
-    yellow = "#D7A65F",
-    green = "#95C561",
-    blue = "#7199EE",
-    cyan = "#38A89D",
-    purple = "#A485DD",
-    grey = "#4A5057",
-    none = "NONE",
+  -- placeholder for future adjustments
+  unassigned = "#ff11ee",
+  -- normal text and highlights
+  background = colors.grayscale_0,
+  background_1 = colors.grayscale_10,
+  background_2 = colors.grayscale_25,
+  background_3 = colors.grayscale_30,
+  background_4 = colors.grayscale_40,
+  text = colors.grayscale_75,
+  text_darker = colors.grayscale_50,
+  text_lighter = colors.grayscale_100,
+  highlight = colors.color_2,
+  highlight_secondary = colors.color_2_light,
+  -- diffs (also for git)
+  diff_delete = colors.red_dark,
+  diff_add = colors.green_dark,
+  diff_change = colors.blue_dark,
+  -- annotations
+  error = colors.red_dark,
+  warning = colors.green_dark,
+  hint = colors.green_dark,
+  info = colors.green_dark,
+  debug = colors.green_dark,
+  -- UI
+  title = colors.color_3,
+  button = colors.color_3,
+  directory = colors.color_3,
+  -- syntax highlights
+  variable = colors.grayscale_75,
+  parameter = colors.grayscale_100,
+  keyword = colors.color_1,
+  type = colors.color_2,
+  class = colors.color_2_light,
+  constant = colors.color_3,
+  operator = colors.grayscale_50,
+  comment = colors.grayscale_50,
+  -- no color?
+  none = "NONE",
 }
 
-local function gamma_correction(colors)
-    local colors_corrected = {}
-    for k, v in pairs(colors) do
-        colors_corrected[k] = utils.color_gamma(v, config.gamma)
-    end
-    return colors_corrected
-end
-
-local custom_palette = type(config.custom_palette) == "function"
-    and config.custom_palette(palette)
-    or config.custom_palette
-
-return gamma_correction(vim.tbl_extend("force", palette, custom_palette))
+return palette

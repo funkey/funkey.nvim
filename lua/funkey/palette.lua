@@ -5,12 +5,10 @@ local utils = require("funkey.utils")
 local primary_colors = {
   -- Freely adjustable colors
   color_1 = "#B16AD2",
-  color_2 = "#DD8C13",
+  color_2 = "#FEB13E",
   color_3 = "#55B849",
-  -- background = "#110106",  -- my slides background
-  background = "#1A071D", -- a pleasant compromise
-  -- background = "#250A29",  -- my terminal background
-  foreground = "#E0CFE3",
+  background = "#1A071D",
+  foreground = "#E8E5E3",
   -- Specific colors (for git diffs and errors)
   red = "#E64505",
   green = "#55B849",
@@ -29,22 +27,26 @@ end
 -- All theme colors, derived from the primary colors only.
 local colors = {
   color_1 = primary_colors.color_1,
-  color_1_dark = primary_colors.color_1 + lightness(-0.3),
+  color_1_dark = primary_colors.color_1 + lightness(-0.2),
   color_1_light = primary_colors.color_1 + lightness(0.2),
   color_2 = primary_colors.color_2,
   color_2_dark = primary_colors.color_2 + lightness(-0.2),
-  color_2_light = primary_colors.color_2 + lightness(0.4),
+  color_2_light = primary_colors.color_2 + lightness(0.2),
   color_3 = primary_colors.color_3,
-  color_3_dark = primary_colors.color_3 + lightness(-0.4),
-  color_3_light = primary_colors.color_3 + lightness(0.4),
-  grayscale_0 = primary_colors.background,
-  grayscale_10 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.10),
-  grayscale_25 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.25),
-  grayscale_30 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.30),
-  grayscale_40 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.40),
-  grayscale_50 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.50),
-  grayscale_75 = utils.interpolate(primary_colors.background, primary_colors.foreground, 0.75),
-  grayscale_100 = primary_colors.foreground,
+  color_3_dark = primary_colors.color_3 + lightness(-0.2),
+  color_3_light = primary_colors.color_3 + lightness(0.2),
+  -- a sequence of increasingly brighter background colors
+  background_0 = primary_colors.background,
+  background_1 = primary_colors.background + lightness(0.05),
+  background_2 = primary_colors.background + lightness(0.10),
+  background_3 = primary_colors.background + lightness(0.15),
+  background_4 = primary_colors.background + lightness(0.20),
+  -- a sequence of increasingly darker foreground colors
+  foreground_0 = primary_colors.foreground,
+  foreground_1 = primary_colors.foreground + lightness(-0.10),
+  foreground_2 = primary_colors.foreground + lightness(-0.20),
+  foreground_3 = primary_colors.foreground + lightness(-0.30),
+  foreground_4 = primary_colors.foreground + lightness(-0.40),
   red = primary_colors.red,
   red_dark = primary_colors.red + lightness(-0.3),
   red_light = primary_colors.red + lightness(0.3),
@@ -61,14 +63,14 @@ local palette = {
   -- placeholder for future adjustments
   unassigned = "#ff11ee",
   -- normal text and highlights
-  background = colors.grayscale_0,
-  background_1 = colors.grayscale_10,
-  background_2 = colors.grayscale_25,
-  background_3 = colors.grayscale_30,
-  background_4 = colors.grayscale_40,
-  text = colors.grayscale_75,
-  text_darker = colors.grayscale_50,
-  text_lighter = colors.grayscale_100,
+  background = colors.background_0,
+  background_1 = colors.background_1,
+  background_2 = colors.background_2,
+  background_3 = colors.background_3,
+  background_4 = colors.background_4,
+  text = colors.foreground_1,
+  text_darker = colors.foreground_2,
+  text_lighter = colors.foreground_0,
   highlight = colors.color_2,
   highlight_secondary = colors.color_2_light,
   -- diffs (also for git)
@@ -86,14 +88,14 @@ local palette = {
   button = colors.color_3,
   directory = colors.color_3,
   -- syntax highlights
-  variable = colors.grayscale_75,
-  parameter = colors.grayscale_100,
+  variable = colors.foreground_1,
+  parameter = colors.foreground_2,
   keyword = colors.color_1,
   type = colors.color_2,
   class = colors.color_2_light,
   constant = colors.color_3,
-  operator = colors.grayscale_50,
-  comment = colors.grayscale_50,
+  operator = colors.foreground_3,
+  comment = colors.foreground_4,
   -- no color?
   none = "NONE",
 }

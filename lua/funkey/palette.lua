@@ -48,14 +48,14 @@ local colors = {
   foreground_3 = primary_colors.foreground + lightness(-0.30),
   foreground_4 = primary_colors.foreground + lightness(-0.40),
   red = primary_colors.red,
-  red_dark = primary_colors.red + lightness(-0.3),
-  red_light = primary_colors.red + lightness(0.3),
+  red_dark = primary_colors.red + lightness(-0.2),
+  red_light = primary_colors.red + lightness(0.2),
   green = primary_colors.green,
-  green_dark = primary_colors.green + lightness(-0.3),
-  green_light = primary_colors.green + lightness(0.3),
+  green_dark = primary_colors.green + lightness(-0.2),
+  green_light = primary_colors.green + lightness(0.2),
   blue = primary_colors.blue,
-  blue_dark = primary_colors.blue + lightness(-0.3),
-  blue_light = primary_colors.blue + lightness(0.3),
+  blue_dark = primary_colors.blue + lightness(-0.2),
+  blue_light = primary_colors.blue + lightness(0.2),
 }
 
 -- Semantic colors.

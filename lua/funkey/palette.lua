@@ -87,6 +87,7 @@ local palette = {
   title = colors.color_3,
   button = colors.color_3,
   directory = colors.color_3,
+  separator = colors.background_1,
   -- syntax highlights
   variable = colors.foreground_1,
   parameter = colors.foreground_2,

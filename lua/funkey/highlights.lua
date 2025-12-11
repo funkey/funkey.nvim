@@ -79,7 +79,7 @@ M.highlights = {
     StatusLineNC = { fg = p.text_darker, bg = p.background_1 },
     StatusLineTermNC = { fg = p.text_darker, bg = p.background_1 },
     TabLine = { fg = p.text, bg = p.background_4 },
-    TabLineFill = { fg = p.text_darker, bg = p.background },
+    TabLineFill = { fg = p.text_darker, bg = p.background_1 },
     TabLineSel = { fg = p.background, bg = p.highlight },
     WinSeparator = { fg = p.separator },
     VertSplit = { fg = p.unassigned },

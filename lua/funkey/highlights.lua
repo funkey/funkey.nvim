@@ -62,7 +62,7 @@ M.highlights = {
     CurSearch = { fg = p.background, bg = p.highlight },
     MatchParen = { fg = p.highlight, bold = true },
     NonText = { fg = p.background_4 },
-    Whitespace = { fg = p.background_4 },
+    Whitespace = { fg = p.background_2 },
     SpecialKey = { fg = p.background_4 },
     Pmenu = { fg = p.text, bg = p.background },
     PmenuSbar = { fg = p.none, bg = p.background },
